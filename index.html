@@ -4,45 +4,57 @@
   <meta charset="UTF-8">
   <title>Portefólio · Telmo Rodrigues</title>
   <style>
-    body { margin:0; font-family:'Segoe UI', sans-serif; background:#f7f7f7; color:#222; }
-    .container { max-width:900px; margin:120px auto; padding:0 20px; text-align:center; }
-
-    h1 { font-size:40px; margin-bottom:20px; font-weight:700; }
-    p.desc { font-size:18px; line-height:1.7; margin-bottom:40px; }
-
-    .links a {
-      display:inline-block;
-      margin:10px;
-      padding:12px 25px;
-      border:1px solid #222;
-      border-radius:6px;
-      text-decoration:none;
-      color:#222;
-      transition:0.3s;
-      font-size:16px;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      color: #222;
     }
-    .links a:hover { background:#222; color:#fff; }
-  </style>
-</head>
-<body>
 
-<div class="container">
-  <h1>Portefólio</h1>
-  <p class="desc">
-    Telmo Rodrigues é um artista visual multidisciplinar cuja obra atravessa pintura, desenho, escultura e criação digital.<br>
-    A sua prática combina o gesto manual com a experimentação contemporânea, explorando o equilíbrio entre forma, matéria e símbolo.<br><br>
-    Cada obra nasce como extensão de uma linguagem interior, uma busca por harmonia entre o visível e o invisível.<br><br>
-    Este portefólio apresenta fragmentos dessa jornada criativa: composições que revelam o olhar do artista sobre o corpo, a natureza e o imaginário.<br><br>
-    <strong>Explora as secções abaixo para conhecer o universo visual de Rodrigues.</strong>
-  </p>
+    .container {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 0 40px;
+      text-align: left;
+    }
 
-  <div class="links">
-    <a href="pinturas.html">Pinturas</a>
-    <a href="desenhos.html">Desenhos</a>
-    <a href="textos.html">Textos</a>
-    <a href="esculturas.html">Esculturas</a>
-  </div>
-</div>
+    h1 {
+      font-size: 42px;
+      margin-bottom: 50px;
+      font-weight: 700;
+      text-align: left;
+    }
 
-</body>
-</html>
+    p.desc {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+    }
+
+    /* BOTÕES GRANDES */
+    .links {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .links .box {
+      width: 180px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #222;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #222;
+      font-size: 18px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .links .box:hover {
+      background: #222;
+      color: #
