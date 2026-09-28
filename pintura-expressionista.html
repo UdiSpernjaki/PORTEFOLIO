@@ -4,11 +4,60 @@
   <meta charset="UTF-8">
   <title>Pinturas Digitais Expressionistas · Portefólio</title>
   <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* BARRA DE MENU */
+    header {
+      background: #111;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 40px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p.intro {
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
     .obra {
@@ -25,55 +74,70 @@
       margin-bottom: 15px;
     }
 
-    .obra h2 {
+    .obra h3 {
       font-size: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .obra p {
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
-<h1>Pinturas Digitais Expressionistas</h1>
-<p>Exploração pictórica através de técnicas digitais e gestuais, com foco na emoção e intensidade cromática.</p>
+<header>
+  <h1>Portefólio</h1>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pintura-digital.html">Pinturas Digitais</a>
+    <a href="pintura-expressionista.html">Pinturas Expressionistas</a>
+    <a href="desenhos.html">Desenhos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
 
-<div class="gallery">
+<main>
+  <h2>Pinturas Digitais Expressionistas</h2>
+  <p class="intro">
+    Exploração pictórica através de técnicas digitais e gestuais, com foco na emoção, intensidade cromática e expressão simbólica.
+  </p>
 
-  <div class="obra">
-    <img src="Ilustracao_Sem_Titulo (4).jpg" alt="Ilustração Sem Título 4">
-    <h2>Ilustração Sem Título 4</h2>
-    <p>Expressão intensa de cor e gesto, explorando o corpo e o movimento. (Descrição a completar)</p>
+  <div class="gallery">
+
+    <div class="obra">
+      <img src="ilustracao4.jpg" alt="Ilustração 4">
+      <h3>Ilustração 4</h3>
+      <p>Composição vertical com estrutura central e cores vibrantes; gesto forte e traço livre, típico do expressionismo digital. (Descrição a completar)</p>
+    </div>
+
+    <div class="obra">
+      <img src="ilustracao5.jpg" alt="Ilustração 5">
+      <h3>Ilustração 5</h3>
+      <p>Retrato estilizado com cores intensas e contrastes; traço espontâneo e emocional. (Descrição a completar)</p>
+    </div>
+
+    <div class="obra">
+      <img src="ilustracao6.jpg" alt="Ilustração 6">
+      <h3>Ilustração 6</h3>
+      <p>Figura com halo e pinceladas vigorosas; expressão simbólica e espiritual, muito gestual. (Descrição a completar)</p>
+    </div>
+
+    <div class="obra">
+      <img src="ilustracao8.jpg" alt="Ilustração 8">
+      <h3>Ilustração 8</h3>
+      <p>Explosão cromática e linhas radiantes; energia pura e abstração gestual. (Descrição a completar)</p>
+    </div>
+
+    <div class="obra">
+      <img src="ilustracao9.jpg" alt="Ilustração 9">
+      <h3>Ilustração 9</h3>
+      <p>Retrato com traço livre e expressão intensa; texto “BEAUTIFUL” reforça o contraste entre beleza e distorção. (Descrição a completar)</p>
+    </div>
+
   </div>
-
-  <div class="obra">
-    <img src="Ilustracao_Sem_Titulo (5).jpg" alt="Ilustração Sem Título 5">
-    <h2>Ilustração Sem Título 5</h2>
-    <p>Composição expressionista digital com foco na emoção e textura. (Descrição a completar)</p>
-  </div>
-
-  <div class="obra">
-    <img src="Ilustracao_Sem_Titulo (6).jpg" alt="Ilustração Sem Título 6">
-    <h2>Ilustração Sem Título 6</h2>
-    <p>Retrato simbólico com traços distorcidos e paleta vibrante. (Descrição a completar)</p>
-  </div>
-
-  <div class="obra">
-    <img src="Ilustração_Sem_Título (8)" alt="Ilustração Sem Título 8">
-    <h2>Ilustração Sem Título 8</h2>
-    <p>Exploração de energia cromática e abstração gestual. (Descrição a completar)</p>
-  </div>
-
-  <div class="obra">
-    <img src="Ilustracao_Sem_Titulo (9).jpg" alt="Ilustração Sem Título 9">
-    <h2>Ilustração Sem Título 9</h2>
-    <p>Figura expressionista com traço livre e intensidade emocional. (Descrição a completar)</p>
-  </div>
-
-</div>
+</main>
 
 </body>
 </html>
