@@ -69,6 +69,13 @@
       width: 100%;
       border-radius: 6px;
       margin-bottom: 15px;
+      transition: transform 0.2s;
+    }
+
+    /* Lupa ao passar o rato */
+    .obra img:hover {
+      filter: brightness(0.9);
+      cursor: zoom-in;
     }
 
     /* MODAL DE EXPANSÃO */
@@ -90,6 +97,7 @@
       max-height: 80%;
       border-radius: 8px;
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      transition: transform 0.2s;
     }
 
     .fechar, .anterior, .seguinte {
@@ -121,6 +129,36 @@
     .fechar:hover, .anterior:hover, .seguinte:hover {
       color: #ccc;
     }
+
+    /* BOTÕES DE ZOOM */
+    .zoom-controls {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .zoom-btn {
+      background: #fff;
+      color: #000;
+      font-size: 22px;
+      font-weight: bold;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      border: 2px solid #000;
+    }
+
+    .zoom-btn:hover {
+      background: #000;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -148,6 +186,12 @@
   <span class="anterior" id="anterior">‹</span>
   <img id="imagemModal" src="">
   <span class="seguinte" id="seguinte">›</span>
+
+  <!-- BOTÕES DE ZOOM -->
+  <div class="zoom-controls">
+    <div class="zoom-btn" id="zoomIn">+</div>
+    <div class="zoom-btn" id="zoomOut">−</div>
+  </div>
 </div>
 
 <script>
@@ -157,36 +201,8 @@
   const fechar = document.getElementById('fechar');
   const anterior = document.getElementById('anterior');
   const seguinte = document.getElementById('seguinte');
+  const zoomIn = document.getElementById('zoomIn');
+  const zoomOut = document.getElementById('zoomOut');
+
   let indiceAtual = 0;
-
-  imagens.forEach((img, i) => {
-    img.addEventListener('click', () => {
-      indiceAtual = i;
-      abrirModal();
-    });
-  });
-
-  function abrirModal() {
-    modal.style.display = 'flex';
-    imagemModal.src = imagens[indiceAtual].src;
-  }
-
-  fechar.addEventListener('click', () => modal.style.display = 'none');
-
-  anterior.addEventListener('click', () => {
-    indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
-    imagemModal.src = imagens[indiceAtual].src;
-  });
-
-  seguinte.addEventListener('click', () => {
-    indiceAtual = (indiceAtual + 1) % imagens.length;
-    imagemModal.src = imagens[indiceAtual].src;
-  });
-
-  modal.addEventListener('click', e => {
-    if (e.target === modal) modal.style.display = 'none';
-  });
-</script>
-
-</body>
-</html>
+  let zoom
