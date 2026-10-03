@@ -12,34 +12,30 @@
       padding: 0;
     }
 
-    /* BARRA DE MENU */
-    header {
-      background: #111;
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      font-size: 20px;
-      margin: 0;
-    }
-
-    nav a {
-      color: #fff;
+    /* BOTÃO VOLTAR */
+    .voltar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 6px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
       text-decoration: none;
-      margin-left: 15px;
-      font-size: 15px;
+      color: #000;
+      z-index: 1000;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .voltar:hover {
+      background: #000;
+      color: #fff;
     }
 
     main {
-      padding: 40px;
+      padding: 80px 40px 40px;
     }
 
     h2 {
@@ -66,6 +62,7 @@
       border-radius: 8px;
       padding: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      cursor: pointer;
     }
 
     .obra img {
@@ -74,29 +71,61 @@
       margin-bottom: 15px;
     }
 
-    .obra h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
+    /* MODAL DE EXPANSÃO */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
     }
 
-    .obra p {
-      font-size: 15px;
-      line-height: 1.6;
+    .modal img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .fechar, .anterior, .seguinte {
+      position: absolute;
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .fechar {
+      top: 20px;
+      right: 30px;
+    }
+
+    .anterior {
+      left: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .seguinte {
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .fechar:hover, .anterior:hover, .seguinte:hover {
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Portefólio</h1>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pintura-digital.html">Pinturas Digitais</a>
-    <a href="pintura-expressionista.html">Pinturas Expressionistas</a>
-    <a href="desenhos.html">Desenhos</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
-</header>
+<a href="pinturas.html" class="voltar">←</a>
 
 <main>
   <h2>Pinturas Digitais Expressionistas</h2>
@@ -105,39 +134,59 @@
   </p>
 
   <div class="gallery">
-
-    <div class="obra">
-      <img src="Ilustracao4.jpg" alt="Ilustracao4.jpg">
-      <h3>Ilustração 4</h3>
-      <p>Composição vertical com estrutura central e cores vibrantes; gesto forte e traço livre, típico do expressionismo digital. (Descrição a completar)</p>
-    </div>
-
-    <div class="obra">
-      <img src="Ilustracao5.jpg" alt="Ilustracao5.jpg">
-      <h3>Ilustração 5</h3>
-      <p>Retrato estilizado com cores intensas e contrastes; traço espontâneo e emocional. (Descrição a completar)</p>
-    </div>
-
-    <div class="obra">
-      <img src="Ilustracao6.jpg" alt="Ilustracao6.jpg">
-      <h3>Ilustração 6</h3>
-      <p>Figura com halo e pinceladas vigorosas; expressão simbólica e espiritual, muito gestual. (Descrição a completar)</p>
-    </div>
-
-    <div class="obra">
-      <img src="Ilustracao8.jpg" alt="Ilustracao8.jpg">
-      <h3>Ilustração 8</h3>
-      <p>Explosão cromática e linhas radiantes; energia pura e abstração gestual. (Descrição a completar)</p>
-    </div>
-
-    <div class="obra">
-      <img src="Ilustracao9.jpg" alt="Ilustracao9.jpg">
-      <h3>Ilustração 9</h3>
-      <p>Retrato com traço livre e expressão intensa; texto “BEAUTIFUL” reforça o contraste entre beleza e distorção. (Descrição a completar)</p>
-    </div>
-
+    <div class="obra"><img src="Ilustracao4.jpg" alt="Ilustracao4"></div>
+    <div class="obra"><img src="Ilustracao5.jpg" alt="Ilustracao5"></div>
+    <div class="obra"><img src="Ilustracao6.jpg" alt="Ilustracao6"></div>
+    <div class="obra"><img src="Ilustracao8.jpg" alt="Ilustracao8"></div>
+    <div class="obra"><img src="Ilustracao9.jpg" alt="Ilustracao9"></div>
   </div>
 </main>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <span class="fechar" id="fechar">X</span>
+  <span class="anterior" id="anterior">‹</span>
+  <img id="imagemModal" src="">
+  <span class="seguinte" id="seguinte">›</span>
+</div>
+
+<script>
+  const imagens = document.querySelectorAll('.obra img');
+  const modal = document.getElementById('modal');
+  const imagemModal = document.getElementById('imagemModal');
+  const fechar = document.getElementById('fechar');
+  const anterior = document.getElementById('anterior');
+  const seguinte = document.getElementById('seguinte');
+  let indiceAtual = 0;
+
+  imagens.forEach((img, i) => {
+    img.addEventListener('click', () => {
+      indiceAtual = i;
+      abrirModal();
+    });
+  });
+
+  function abrirModal() {
+    modal.style.display = 'flex';
+    imagemModal.src = imagens[indiceAtual].src;
+  }
+
+  fechar.addEventListener('click', () => modal.style.display = 'none');
+
+  anterior.addEventListener('click', () => {
+    indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
+    imagemModal.src = imagens[indiceAtual].src;
+  });
+
+  seguinte.addEventListener('click', () => {
+    indiceAtual = (indiceAtual + 1) % imagens.length;
+    imagemModal.src = imagens[indiceAtual].src;
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+</script>
 
 </body>
 </html>
